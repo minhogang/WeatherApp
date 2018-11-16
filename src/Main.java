@@ -6,11 +6,35 @@ import com.google.gson.*;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception{
-        HTTPRequest();
+    public static void main(String[] args) throws EmptyOrInvalidArguments, Exception {
+        if (args.length == 0) {
+            throw new EmptyOrInvalidArguments("No arguments were spectified");
+        } else if (!args[0].equals("--current") && !args[0].equals("--fiveday")) {
+            throw new EmptyOrInvalidArguments(String.format("Argument %s is invalid", args[0]));
+        } else if (args[0].equals("--current")) {
+            HTTPRequestCurrent();
+        }
+
     }
 
-    public static void HTTPRequest() throws Exception {
+    public String analyzeWeather(JsonObject obj) {
+        int id = obj.get("id").getAsInt();
+        String[] drizzleActivities = {"Carry an umbrella", "Low traffic"};
+        String[] rainActivities = {"Carry an umbrella"};
+        String clearActivities[] = {"A great time to go to the ocean", "Wear sunglasses",
+                "sunscreen (if doing outside activities)", "Minimal traffic"};
+        if (id < 233)  {
+            return "Weather Condition: Thunderstorm. It advised to stay inside";
+        } else if (id < 322) {
+            return "Weather Condition: Drizzle. Use an umbrella when going out.";
+        } else if (id < 532) {
+            return "Weather Condition: Rain";
+        } else {
+            return "Weather Condition: Clear.";
+        }
+    }
+
+    public static void HTTPRequestCurrent() throws Exception {
         String API_KEY = "de2fd82e32608db37b4964f69900f105";
         //This is the URL to send the request to with the given API key.
         String url = "http://api.openweathermap.org/data/2.5/weather?lat=13&lon=144&units=imperial&APPID=" + API_KEY;
