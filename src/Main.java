@@ -17,20 +17,20 @@ public class Main {
 
     }
 
-    public String analyzeWeather(JsonObject obj) {
+    public void analyzeWeather(JsonObject obj) {
         int id = obj.get("id").getAsInt();
-        String[] drizzleActivities = {"Carry an umbrella", "Low traffic"};
-        String[] rainActivities = {"Carry an umbrella"};
-        String clearActivities[] = {"A great time to go to the ocean", "Wear sunglasses",
-                "sunscreen (if doing outside activities)", "Minimal traffic"};
+        String[] drizzleActivities = {"Explore a cave", "Watch movies"};
+        String[] thunderstormActivities = {"Watch movies"};
+        String[] rainActivities = {"Explore a cave", "Watch movies", "Use a dehumidifier"};
+        String clearActivities[] = {"Go to beach", "Hiking"};
         if (id < 233)  {
-            return "Weather Condition: Thunderstorm. It advised to stay inside";
+            System.out.println("Weather Condition: Thunderstorm. It advised to stay inside");
         } else if (id < 322) {
-            return "Weather Condition: Drizzle. Use an umbrella when going out.";
+            System.out.println("Weather Condition: Drizzle. Use an umbrella when going out.");
         } else if (id < 532) {
-            return "Weather Condition: Rain";
+            System.out.println("Weather Condition: Rain");
         } else {
-            return "Weather Condition: Clear.";
+            System.out.println("Weather Condition: Clear. Hello World!");
         }
     }
 
@@ -65,6 +65,11 @@ public class Main {
         double temperature = mainSub.get("temp").getAsDouble();
         double humidity = mainSub.get("humidity").getAsDouble();
         double windSpeed = windSub.get("speed").getAsDouble();
+        System.out.printf("Weather: %s\n", weatherStatus);
+        System.out.printf("Description: %s\n", description);
+        System.out.printf("Temperature: %d\n", temperature);
+        System.out.printf("Humidity: %d\n", humidity);
+        System.out.printf("Wind Speed: %d\n", windSpeed);
     }
 }
 
