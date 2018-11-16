@@ -1,14 +1,10 @@
 import java.awt.*;
-import java.awt.event.ComponentListener;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import com.google.gson.*;
-
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 
 public class Main extends JFrame {
 
@@ -23,7 +19,7 @@ public class Main extends JFrame {
         }*/
         HTTPRequestCurrent(API_KEY, false);
     }
-
+    //Some activities to do in some weather
     public void analyzeWeather(JsonObject obj) {
         int id = obj.get("id").getAsInt();
         String[] drizzleActivities = {"Explore a cave", "Watch movies"};
@@ -51,6 +47,7 @@ public class Main extends JFrame {
         double temperature = mainSub.get("temp").getAsDouble();
         double humidity = mainSub.get("humidity").getAsDouble();
         double windSpeed = windSub.get("speed").getAsDouble();
+
         System.out.printf("Weather: %s\n", weatherStatus);
         System.out.printf("Description: %s\n", description);
         System.out.printf("Temperature: %2f\n", temperature);
@@ -68,7 +65,7 @@ public class Main extends JFrame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         for (JsonElement data: list) {
-            String title = data.getAsJsonObject().get("dt_txt").getAsString();
+            String title = data.getAsJsonObject().get("dt_txt").getAsString(); //date and time of forecast
             JComponent comp = new GUIComponent(data);
             comp.setBorder(BorderFactory.createTitledBorder(title));
             panel.add(comp);
@@ -105,4 +102,3 @@ public class Main extends JFrame {
         else fiveDayForecast(jsonObject);
     }
 }
-
