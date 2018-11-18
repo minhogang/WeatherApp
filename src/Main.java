@@ -7,7 +7,7 @@ import com.google.gson.*;
 import javax.swing.*;
 
 public class Main extends JFrame {
-
+    //Test comment
     public static void main(String[] args) throws EmptyOrInvalidArguments, Exception {
         String API_KEY = "de2fd82e32608db37b4964f69900f105";
 /*        if (args.length == 0) {
