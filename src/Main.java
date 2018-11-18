@@ -41,6 +41,8 @@ public class Main {
         double temperature = mainSub.get("temp").getAsDouble();
         double humidity = mainSub.get("humidity").getAsDouble();
         double windSpeed = windSub.get("speed").getAsDouble();
+
+        System.out.println(weatherStatus + description);
     }
 }
 
