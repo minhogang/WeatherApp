@@ -16,12 +16,12 @@ public class GUIComponent extends JComponent {
     //Fetch image based on the weather code
     private BufferedImage loadImage(int code){
         URL imagePath;
-        if (code == 800) imagePath = getClass().getResource("Rain/sunny.png");
-        else if (code > 800) imagePath = getClass().getResource("Rain/partlySunny.png");
+        if (code == 800) imagePath = getClass().getResource("assets/sunny.png");
+        else if (code > 800) imagePath = getClass().getResource("assets/partlySunny.png");
         else if (code >= 500 && code <= 531) imagePath = getClass().getResource("assets/rain.png");
-        else if (code >= 300 && code <= 321) imagePath = getClass().getResource("Rain/drizzle.png");
-        else if (code <= 232 && code >= 200) imagePath = getClass().getResource("Rain/thunderstorm.png");
-        else imagePath = getClass().getResource("Rain/cloud.png");
+        else if (code >= 300 && code <= 321) imagePath = getClass().getResource("assets/drizzle.png");
+        else if (code <= 232 && code >= 200) imagePath = getClass().getResource("assets/thunderstorm.png");
+        else imagePath = getClass().getResource("assets/cloud.png");
         BufferedImage result = null;
         try {
             result = ImageIO.read(imagePath);
