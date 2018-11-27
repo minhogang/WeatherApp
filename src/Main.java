@@ -31,7 +31,7 @@ public class Main extends JFrame {
 		HTTPRequestCurrent(API_KEY, false);
 		System.out.println("Would you like to know the weather condition right now?");
 		Scanner input = new Scanner(System.in);
-		if (input.hasNext()) {HTTPRequestCurrent(API_KEY, true);}
+		if (input.next().equals("yes")) {HTTPRequestCurrent(API_KEY, true);}
 		input.close();
 	}
 
