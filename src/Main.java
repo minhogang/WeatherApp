@@ -187,6 +187,6 @@ public class Main extends JFrame {
 			String humidity = data.getAsJsonObject().getAsJsonObject("main").get("humidity").getAsString();
 			writer.writeNext(new String[]{date, time, temperature, weather, description, windSpeed, humidity}); //write a line to the CSV file
 		}
-		writer.close();
+		writer.close(); //Close the file
 	}
 }
