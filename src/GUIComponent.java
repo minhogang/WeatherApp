@@ -14,6 +14,7 @@ public class GUIComponent extends JComponent {
     }
 
     //Fetch image based on the weather code
+    //Weather code available on openweathermap API docs
     private BufferedImage loadImage(int code){
         URL imagePath;
         if (code == 800) imagePath = getClass().getResource("assets/sunny.png");
